@@ -384,7 +384,7 @@ case "X$WORLD" in
     echo "Downloading world via HTTP"
     echo "$WORLD"
     wget -q -O - "$WORLD" > /data/world.zip
-    echo "Unzipping word"
+    echo "Unzipping world"
     unzip -o -q /data/world.zip
     rm -f /data/world.zip
     if [ ! -d /data/world ]; then
