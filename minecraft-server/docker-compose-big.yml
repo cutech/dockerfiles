@@ -4,6 +4,7 @@ services:
   minecraft:
     ports:
       - "25565:25565"
+      - "25565:25566"
     volumes:
       - "mcbig:/data"
     environment:
@@ -14,7 +15,7 @@ services:
       LEVEL_TYPE: LARGEBIOMES
       MAX_PLAYERS: 100
       CONSOLE: "false"
-    image: itzg/minecraft-server
+    image: cutech/minecraft-server
     restart: always
   rcon:
     image: itzg/rcon
