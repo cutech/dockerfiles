@@ -1,6 +1,6 @@
 FROM openjdk:8u131-jre-alpine
 
-LABEL maintainer "itzg"
+LABEL maintainer "itzg" Fork "cutech"
 
 RUN apk add -U \
           openssl \
@@ -27,7 +27,7 @@ RUN addgroup -g 1000 minecraft \
   && mkdir /plugins \
   && chown minecraft:minecraft /data /config /mods /plugins /home/minecraft
 
-EXPOSE 25565 25575
+EXPOSE 25565 25566 25575
 
 ADD https://github.com/itzg/restify/releases/download/1.0.4/restify_linux_amd64 /usr/local/bin/restify
 ADD https://github.com/itzg/rcon-cli/releases/download/1.3/rcon-cli_linux_amd64 /usr/local/bin/rcon-cli
@@ -44,7 +44,7 @@ ENTRYPOINT [ "/start" ]
 
 ENV UID=1000 GID=1000 \
     MOTD="A Minecraft Server Powered by Docker" \
-    JVM_XX_OPTS="-XX:+UseG1GC" MEMORY="1G" \
-    TYPE=VANILLA VERSION=LATEST FORGEVERSION=RECOMMENDED LEVEL=world PVP=true DIFFICULTY=easy \
+    JVM_XX_OPTS="-XX:+UseG1GC" MEMORY="3G" \
+    TYPE=VANILLA VERSION=LATEST FORGEVERSION=RECOMMENDED LEVEL=world PVP=false DIFFICULTY=easy \
     ENABLE_RCON=true RCON_PORT=25575 RCON_PASSWORD=minecraft \
     LEVEL_TYPE=DEFAULT GENERATOR_SETTINGS= WORLD= MODPACK= ONLINE_MODE=TRUE CONSOLE=true
