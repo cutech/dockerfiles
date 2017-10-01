@@ -385,7 +385,7 @@ case "X$WORLD" in
     echo "$WORLD"
     wget -q -O - "$WORLD" > /data/world.zip
     echo "Unzipping world"
-    unzip -o -q /data/world.zip
+    unzip -u -q /data/world.zip
     rm -f /data/world.zip
     if [ ! -d /data/world ]; then
       echo World directory not found
